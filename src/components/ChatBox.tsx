@@ -52,7 +52,7 @@ export default class ChatBox extends React.Component<IProps, IState> {
   }
 
   private clear = (): void => {
-    this.setState({ message: '' })
+    this.setState({ message: '' });
   }
 
   private setMessage = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
