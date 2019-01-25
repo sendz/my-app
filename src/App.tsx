@@ -14,7 +14,7 @@ interface IMethods {
   sendMessage: (message: string) => void;
 }
 
-class App extends React.Component<{}, IState> implements IMethods {
+export default class App extends React.Component<{}, IState> implements IMethods {
   constructor({ }) {
     super({});
     this.state = {
@@ -28,7 +28,7 @@ class App extends React.Component<{}, IState> implements IMethods {
   }
 
   public replyMessage = (message: string): void => { // This is dummy method
-    this.setState({ messages: [...this.state.messages!, { message: `Reply to: ${message}`, type: 'reply' }]});
+    this.setState({ messages: [...this.state.messages!, { message: `Reply to: ${message}`, type: 'reply' }] });
   }
 
   public render() {
@@ -76,18 +76,17 @@ class App extends React.Component<{}, IState> implements IMethods {
 
     return (
       <div style={app}>
-        <div>
-          <h3 style={appTitle}>This is Chat</h3>
-          <div style={appWindow}>
-            {
-              this.state.messages! ? 
-                this.state.messages!.map((message, index) => 
-                  <div style={message.type === 'sent' ? sentItem : replyItem} key={index}>
-                    <span style={message.type === 'reply' ? chatItemReply : chatItem}>{message.message!}</span>
-                  </div>
-                ) 
-            : null}
-          </div>
+        <h3 style={appTitle}>This is Chat</h3>
+        <div style={appWindow}>
+          {
+            this.state.messages! ?
+              this.state.messages!.map((message, index) =>
+                <div style={message.type === 'sent' ? sentItem : replyItem} key={index}>
+                  <span style={message.type === 'reply' ? chatItemReply : chatItem}>{message.message!}</span>
+                </div>
+              )
+              : null
+          }
         </div>
         <ChatBox
           sendMessage={this.sendMessage}
@@ -96,5 +95,3 @@ class App extends React.Component<{}, IState> implements IMethods {
     );
   }
 }
-
-export default App;
