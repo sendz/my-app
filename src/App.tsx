@@ -2,9 +2,7 @@ import * as React from 'react';
 import ChatBox from './components/ChatBox';
 
 class App extends React.Component {
-
   public render() {
-
     const app: React.CSSProperties = {
       textAlign: 'unset'
     }

@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 export default class ChatBox extends React.Component {
-  
   public render() {
     const containerStyle: React.CSSProperties = {
       bottom: 30,
